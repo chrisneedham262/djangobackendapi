@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4; }
+        .container { background: white; padding: 20px; border-radius: 10px; }
+        .header { background: #007bff; padding: 10px; color: white; text-align: center; }
+        .footer { margin-top: 20px; text-align: center; font-size: 12px; color: gray; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Thank You, {{ name }}!</h1>
+        </div>
+        <p>We appreciate you reaching out to us.</p>
+        <p>Here’s a copy of your message:</p>
+        <blockquote>{{ message }}</blockquote>
+        <p>We'll get back to you soon.</p>
+        <div class="footer">No More Staff &copy; 2024</div>
+    </div>
+</body>
+</html>

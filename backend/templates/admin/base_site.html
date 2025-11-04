@@ -1,0 +1,24 @@
+{% extends "admin/base.html" %}
+{% load static %}  
+{% block title %}My Custom Admin{% endblock %}
+
+{% block branding %}
+  <h1 id="site-name"><a href="{% url 'admin:index' %}">Your Personal Admin Site</a></h1>
+{% endblock %}
+
+{% block user-tools %}
+  <span>Welcome, {{ user.get_username }}.</span>
+  {% if user.is_staff %}
+    <a href="{% url 'admin:password_change' %}">Change password</a> /
+  {% endif %}
+  <form id="logout-form" method="post" action="{% url 'admin:logout' %}">
+      {% csrf_token %}
+      <button type="submit">Log out</button>
+  </form>
+  {# The theme-toggle button is hidden using CSS #}
+{% endblock %}
+
+{% block extrastyle %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{% static 'admin/custom_admin.css' %}">
+{% endblock %}
