@@ -232,3 +232,14 @@ class UserProfileAvatarSerializer(serializers.ModelSerializer):
             instance.avatar = validated_data["avatar"]
             instance.save()
         return instance
+
+
+class TestSerializer(serializers.Serializer):
+    name = serializers.CharField(required=True)
+    email = serializers.EmailField(required=True)
+    message = serializers.CharField(required=True)
+
+    def validate(self, attrs):
+        if not attrs["name"]:
+            raise serializers.ValidationError("Name is required")
+        return attrs
